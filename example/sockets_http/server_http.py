@@ -4,6 +4,7 @@ import socket
 # print(HOST)
 
 
+
 def send_file(file_name, conn):
     try:
         with open(file_name.lstrip('/'), 'rb') as f:                   
@@ -66,7 +67,7 @@ ERR_404 = b'HTTP/1.1 404 Not Found\n\n'
 while True:
     print("---listen----")
     conn, addr = sock.accept()
-    data = conn.recv(1024).decode()
+    data = conn.recv(4096).decode()
     print(data)
     
     try:

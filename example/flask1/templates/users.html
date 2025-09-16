@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            
+        } */
+        p {
+            border: 1px solid black;
+            background-color: rgb(235, 201, 243);
+            margin: 1px;
+        }
+
+        p:nth-child(2n){ /*каждый 2ой */
+            
+            background-color: rgb(208, 166, 208);
+        }
+
+        p:hover { /*при наведении мышкой*/
+            background-color: rgb(157, 123, 157);
+            color: rgb(82, 9, 79);
+            
+        }
+
+        a{  
+            background-image: url(https://kartinki.pics/uploads/posts/2021-03/1616039993_51-p-fon-dlya-knopki-60.png);
+            /* background-image: url(/static/pic/but1.png); */
+            background-size: cover;
+            padding: 10px 30px;            
+            margin: 20px;
+            display: inline-block;                   
+        }
+
+
+    </style>
+</head>
+<body>    
+    <h1>пользователи</h1>
+
+    {% for user in users %}
+    <p>
+        <span style="color: rgb(113, 89, 222); font-style:italic;"> {{ loop.index }} </span>
+        {{ user }} - {{ len(user) }}
+        <!-- len в шаблонах нет - ее надо отдельно передать как аргумент-->
+    </p>
+    {% endfor %}
+    
+    <a href="/">Назад</a>
+    
+
+
+</body>
+</html>

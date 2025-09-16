@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask</title>
+</head>
+<body>
+
+    {% set q = 1111111111 %}
+
+    {% if q == 1 %}
+        <p>1111111</p>
+    {% else %}
+        <p>22222222</p>
+    {% endif %}
+
+    {% if admin %}
+        <button> Click1 </button>
+        <button> Click2 </button>
+        <button> Click3 </button>
+    {% endif %}
+
+    <h1>Hello</h1>
+    <h2>Python</h2>
+    <p> {{ q }} </p>
+
+    <a href="/users/"> пользователи </a>
+
+</body>
+</html>
