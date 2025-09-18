@@ -5,17 +5,32 @@ import os
 BASE_DIR = os.path.dirname(__name__) # так работает если проект открыт из любого места
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'my secret key 12334 dslkfj dlskjf lsdkjf sdlkjflsdkjf'
 
 # app = Flask(__name__,
 #             static_folder=os.path.join(BASE_DIR, 'static'),
 #             template_folder=os.path.join(BASE_DIR, 'templates'))
+
+# для сессий обязательно
+app.config['SECRET_KEY'] = 'my secret key 12334 dslkfj dlskjf lsdkjf sdlkjflsdkjf'
+
+# Flask по умолчанию хранит данные сессий на стороне клиента в виде файла cookie. 
+# Однако, для обеспечения безопасности, Flask использует подписанные cookie, 
+# что означает, что данные сессии шифруются и проверяются на целостность с 
+# помощью секретного ключа, который хранится на сервере.
+
+# Если нужно хранить данные сессий на сервере (например, для более сложных 
+# приложений или когда вы не хотите доверять клиенту), вы можете использовать 
+# сторонние расширения, такие как Flask-Session. Это расширение позволяет 
+# хранить сессии в различных хранилищах, таких как файловая система, 
+# Redis или база данных.
+
 
 
 # модель MVC
     # model - модель данных из базы данных(будет позже)
     # view
     # controller
+    
     
 # @app.route("/")
 # def index():
@@ -25,12 +40,14 @@ r_num = 0
 
 users=['user1', 'user22', 'user333', 'suer4', 'user55', 'user6666']
 
-# session['num'] = 0 #  так нельзя
+user = {'fname':'Vasya', 'lname':'Vasilyev'}
+
+# session['num'] = 0 #  так нельзя - можно только внутри ендпоинта (вью-функции)
 
 @app.route("/")
 def index():
     
-    return render_template('index.html', admin=True, q=22222222)
+    return render_template('index.html', admin=True, q=22222222, user=user)
 
 
 @app.route("/count/")
@@ -62,7 +79,7 @@ def form1():
         # query = request.args.get('q', '')  # args из get
         login = request.form.get('login')
         if login == 'qqq':
-            return redirect(url_for('index'))
+            return redirect(url_for('index')) # перенаправление по имени ендпоинта/вью-функции
         else:
             err='Пароль err'
     #     return render_template('form1.html', err='Пароль err')

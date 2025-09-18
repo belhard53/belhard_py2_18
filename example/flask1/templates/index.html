@@ -7,6 +7,11 @@
 </head>
 <body>
 
+    {% if user %}
+        <!-- словарь в шаблонах можно как обычно, а так же через . как свойство объекта  -->
+        <p style="text-align: right;">Hello {{ user.fname }} {{ user['lname']}}</p> 
+    {% endif %}
+
     {% set q = 1111111111 %}
 
     {% if q == 1 %}
