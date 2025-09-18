@@ -41,16 +41,30 @@
     <h1>пользователи</h1>
 
     {% for user in users %}
-    <p>
-        <span style="color: rgb(113, 89, 222); font-style:italic;"> {{ loop.index }} </span>
-        {{ user }} - {{ len(user) }}
-        <!-- len в шаблонах нет - ее надо отдельно передать как аргумент-->
-    </p>
+        <p>
+            <span style="color: rgb(113, 89, 222); font-style:italic;"> {{ loop.index }} </span>
+            {{ user }} - {{ len(user) }}
+            <!-- len в шаблонах нет - ее надо отдельно передать как аргумент-->
+        </p>
+
+        <!-- 
+        loop.index      {# текущая итерация (начинается с 1) #}
+        loop.index0     {# текущая итерация (начинается с 0) #}
+        loop.revindex   {# итерация с конца (начинается с 1) #}
+        loop.revindex0  {# итерация с конца (начинается с 0) #}
+        loop.first      {# True если первая итерация #}
+        loop.last       {# True если последняя итерация #}
+        loop.length     {# общее количество элементов #}
+        loop.depth      {# уровень вложенности цикла #}
+        loop.depth0     {# уровень вложенности цикла (начинается с 0) #} -->
+
+
     {% endfor %}
     
     <a href="/">Назад</a>
     
 
+    
 
 </body>
 </html>

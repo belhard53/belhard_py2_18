@@ -25,7 +25,15 @@
     <h2>Python</h2>
     <p> {{ q }} </p>
 
+    
     <a href="/users/"> пользователи </a>
+    <br>
+    <a href="/form1/"> форма </a>
+    <br>
+    <!-- по имени ендпоита/вьюФункции -->
+    <a href="{{ url_for('users_') }}"> пользователи </a>
+    <br>
+    <a href="{{ url_for('test', num=50) }}"> тест </a>
 
 </body>
 </html>
