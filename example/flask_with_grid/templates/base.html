@@ -12,23 +12,14 @@
     <header >Header        
         <!-- словарь в шаблонах можно как обычно, а так же через . как свойство объекта  -->
         <p class="name"> Hello {{ user.fname }} {{ user['lname']}}</p> 
-        
         <nav>
             <ul class="main-menu">
-                {% block main_menu %}       
-                         
-                <li><a href="{{ url_for('users_') }}">Пользователи</a></li>
-                <li><a href="/form1/">Форма</a></li>
-                <li><a href="{{ url_for('test', num=50) }}">Тест</a></li>
-                
-                {% if admin %}
-                    {% include('menu_admin.html') %}
-                {% endif %}
-                
+                {% block main_menu %}   
+                {% include 'menu_main.html' %}                 
                 {% endblock %}
             </ul>
-        </nav>                 
-    </header>         
+        </nav>
+    </header>  
     
     <main>
 
