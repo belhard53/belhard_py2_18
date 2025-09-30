@@ -4,6 +4,8 @@ import os
 # BASE_DIR = os.getcwd()
 BASE_DIR = os.path.dirname(__name__) # так работает если проект открыт из любого места
 
+# /html/body/main/section[1]/div/p[33]
+# /html/body/main/section[1]/div/p[33]
 app = Flask(__name__)
 
 # app = Flask(__name__,

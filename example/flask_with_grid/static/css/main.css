@@ -13,7 +13,7 @@ body {
     display: grid; 
     grid-template-columns: 1fr 100px;
     grid-template-rows: 120px 1fr 100px;
-    gap: 5px;
+    gap: 5px;    
 } 
 
 
@@ -97,7 +97,7 @@ section{
     background-color: rgb(241, 231, 242);  
     display: grid;
     justify-items: center;    
-    align-content: center;
+    align-content: center;    
 }
 
 
