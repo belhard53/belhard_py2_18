@@ -47,7 +47,19 @@ async def async_main(cities_):
     for task in tasks:
         await task
         
-
+def async_main2(cities):    
+    from threading import Thread
+    
+    lt = [Thread(target=get_weather, args=(c,)) for c in cities]
+    for t in lt:
+        t.start()
+    for t in lt:
+        t.join()
+    
+        
+        
+    
+    
 def main(cities_):    
     for city in cities_:
         get_weather(city)
@@ -63,7 +75,9 @@ t = time.time()
 
 
 # 2 варианта на выбор
-asyncio.run(async_main(cities*4)) # асинхронный вариант
+# asyncio.run(async_main(cities*4)) # асинхронный вариант
+async_main2(cities*4)
+# tr.join()
 # main(cities) # синхронный вариант
 
 print(time.time() - t)
