@@ -149,4 +149,32 @@ def page_not_found(e):
 
 
 
+# ---------------- API 
+@app.route('/api/quizes/', methods = ['GET'])
+def api_get():
+    quizes = Quiz.query.all()
+    json = [{'name':q.name, 'id':q.id, 'user_id':q.user_id}  for q in quizes]    
+    return jsonify(json)
+
+
+
+@app.route('/api/quizes/', methods = ['POST'])
+def api_post():
+    quiz = Quiz('Quiz123', db.session.query(User).get(1))
+    db.session.add(quiz)
+    db.session.commit()
+    return jsonify({"id":quiz.id})
+
+
+    
+@app.route('/api/quizes/<int:id>/', methods = ['GET'])
+def api_get_id(id):    
+    quiz = db.session.query(Quiz).get(id)    
+    return jsonify(dict(name=quiz.name, user_ud=quiz.user_id))
+    
+
+
+
+
+
 app.run(debug=True, host='0.0.0.0', port=5555)
