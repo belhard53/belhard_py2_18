@@ -26,7 +26,7 @@ class Model(DeclarativeBase):
 class UserOrm(Model):
     __tablename__ = 'user'
     
-    # уже ек нужен так как наследуется
+    # уже не нужен так как наследуется
     # id: Mapped[int] = mapped_column(primary_key=True)
     
     name: Mapped[str]

@@ -74,6 +74,8 @@ https://jsonplaceholder.typicode.com/
 https://restninja.io/
 https://www.postman.com/
 
+пример api ЕГР
+https://egr.gov.by/api/swagger-ui.html#/main-controller
 
 
 Типичная структура ответа
