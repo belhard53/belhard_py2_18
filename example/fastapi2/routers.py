@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from database import UserRepository as ur
-from shemas import *
+from schemas import *
 
 
 default_router = APIRouter()

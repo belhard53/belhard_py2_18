@@ -1,8 +1,10 @@
+# pip install sqlalchemy
+
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy import select, text
 
 from models import UserOrm, Model
-from shemas import *
+from schemas import *
 
 import os
 
@@ -122,8 +124,7 @@ class UserRepository:
     
 #     # фильтрация
 #     # filter - старый стиль
-#     users = session.query(User).filter(User.name == 'John').filter(User.age > 25).all()
-    
+#     users = session.query(User).filter(User.name == 'John').filter(User.age > 25).all()    
 #     # where - новый стиль - предпочтительней
 #     stmt = select(User).where(User.name == 'John', User.age > 25)
     

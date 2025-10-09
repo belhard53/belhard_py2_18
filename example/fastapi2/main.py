@@ -1,9 +1,13 @@
 
 from fastapi import FastAPI, Depends
 import uvicorn
-from routers import default_router, users_router, quizes_router
+
 from contextlib import asynccontextmanager
+
+from routers import default_router, users_router, quizes_router
 from database import DataRepository as dr
+
+
 
 
 @asynccontextmanager # реагирует на  методы __aenter__() и __aexit__()
