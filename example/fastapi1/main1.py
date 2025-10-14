@@ -18,7 +18,7 @@ class User1(BaseModel):
 def home():
     return {"hello1": "python", "hello2": 'fastapi'}
 
-
+# /users/?f=123456'
 @app.get('/users', tags=['usersGET'])
 def users(f: str='123', q:str=None):
     return {"status": "success", "data": 'data1', 'f':f, 'q':q}

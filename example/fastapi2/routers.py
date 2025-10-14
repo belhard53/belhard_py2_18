@@ -1,7 +1,11 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Query
 from database import UserRepository as ur
+from models import UserFilter
 from schemas import *
 
+
+# pip install fastapi_filter
+from fastapi_filter import FilterDepends
 
 default_router = APIRouter()
 
@@ -23,8 +27,13 @@ async def index():
 
 # ответ в виде одиночного списка
 @users_router.get('')
-async def users_get() -> list[User]:  
-    users =   await ur.get_users()
+async def users_get(
+            limit:int = Query(ge=1, lt=10, default=3), 
+            offset:int = Query(ge=0, default=0),
+            user_filter: UserFilter = FilterDepends(UserFilter)
+        ) -> list[User]: 
+     
+    users =   await ur.get_users(limit, offset, user_filter)
     return users
 
 # с развернутым ответом 
@@ -58,3 +67,28 @@ def index():
     return {'data':'quizes'}
     
 
+
+
+ #     {
+            # "items": [...],
+            # "total": 100,
+            # "page": 1,
+            # "size": 10,
+            # "pages": 10
+            # }
+
+            # Или с ссылками:
+
+            # {
+            # "items": [...],
+            # "total": 100,
+            # "page": 1,
+            # "size": 10,
+            # "pages": 10,
+            # "links": {
+            # "next": "http://api.example.com/items?page=2",
+            # "prev": null,
+            # "first": "http://api.example.com/items?page=1",
+            # "last": "http://api.example.com/items?page=10"
+            # }
+            # }

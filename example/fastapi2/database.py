@@ -9,6 +9,8 @@ from schemas import *
 import os
 
 
+
+
 BASE_DIR = os.path.dirname(__file__)
 DB_DIR = os.path.join(BASE_DIR, 'db')
 
@@ -77,13 +79,18 @@ class UserRepository:
             return user.id
     
     @classmethod        
-    async def get_users(cls) -> list[UserOrm]:
+    async def get_users(cls, limit, offset, user_filter) -> list[UserOrm]:
         async with new_session() as session:
             
             # select() - это новый стиль SQLAlchemy 2.0, который рекомендуется использовать.
             # при этом полная асинхронная поддержка: session.execute(select(...)) работает асинхронно.
-            query = select(UserOrm)
+            # query = select(UserOrm).limit(limit).offset(offset)
+            # query = select(UserOrm)
             # print(query)
+            
+            query = select(UserOrm)
+            query = user_filter.filter(query).limit(limit).offset(offset)
+            query = user_filter.sort(query)
             
             res = await session.execute(query)
             users = res.scalars().all() # -> список
