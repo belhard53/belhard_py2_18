@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %} Студенты {% endblock %}
+
+{% block content1_head %}
+    <h1>Студенты</h1>
+{% endblock %}
+
+{% block content1 %}
+<div class="students">        
+    <div class="students-cell"> № </div>
+    <div class="students-cell"> ФИО</div>
+    <div class="students-cell"> Возраст  </div>
+    <div class="students-cell"> Пол  </div>
+    <div class="students-cell"> ФОТО  </div>
+
+    {% for s in students %}
+        <!-- <div class="students-cell">{{ forloop.counter}}</div> -->
+        <div class="students-cell"> <a href="{% url 'student' s.id %}">{{ forloop.counter}}</a></div>        
+        
+        <!-- <div class="students-cell"> <a href="/students/{{s.id}}/">{{s.name}} {{s.surname}}</a></div> -->
+        <!-- <div class="students-cell"> <a href="{{s.id}}/">{{s.name}} {{s.surname}}</a></div> -->
+        <!-- <div class="students-cell"> <a href="{% url 'student' s.id %}">{{s.name}} {{s.surname}}</a></div>         -->
+        <div class="students-cell"> <a href="{{ s.get_absolute_url }}">{{s.name}} {{s.surname}}</a></div>        
+        
+        <div class="students-cell"> {{s.age}} </div>
+        <div class="students-cell"> {{s.sex}} {{s.get_sex_display}} </div>            
+        <div class="students-cell">
+        
+        
+        {% if s.photo %}
+            <img class="img-student thumb" src="{{ s.photo.url }}" alt="Нету">
+        {% else %}
+            <!-- <img class="img-student thumb" src="{% static 'main/pic/no-photo.png' %}" alt="Нету"> -->
+        {% endif %}
+
+        
+        
+        {% comment %}
+        многострочный комментарий
+        {% if s.photo %}
+            <img class="img-student thumb" src="{{ s.photo.url }}" alt="Нету">
+        {% endif %}
+        {% endcomment %}
+
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
