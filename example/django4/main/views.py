@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Student, Course, Grade
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-# Create your views here.
+
 from django.db import connection
 
 

@@ -1,0 +1,134 @@
+[
+{
+  "model": "main.student",
+  "pk": 1,
+  "fields": {
+    "name": "┬рё 123",
+    "surname": "┬рёхўъшэ",
+    "age": 22,
+    "sex": "m",
+    "active": true,
+    "course": [
+      3,
+      1
+    ]
+  }
+},
+{
+  "model": "main.student",
+  "pk": 2,
+  "fields": {
+    "name": "╧хЄ ",
+    "surname": "╧хЄ ўъшэ",
+    "age": 33,
+    "sex": "m",
+    "active": false,
+    "course": []
+  }
+},
+{
+  "model": "main.student",
+  "pk": 3,
+  "fields": {
+    "name": "┬рё 2",
+    "surname": "╧хш ўъшх",
+    "age": 33,
+    "sex": "m",
+    "active": false,
+    "course": []
+  }
+},
+{
+  "model": "main.student",
+  "pk": 4,
+  "fields": {
+    "name": "╠р°р",
+    "surname": "╚р°шэр",
+    "age": 22,
+    "sex": "f",
+    "active": true,
+    "course": []
+  }
+},
+{
+  "model": "main.course",
+  "pk": 1,
+  "fields": {
+    "name": "py",
+    "course_num": 1,
+    "start_date": "2025-09-01",
+    "end_date": "2025-10-01",
+    "description": "hfhcgvhjcvbhfdgh"
+  }
+},
+{
+  "model": "main.course",
+  "pk": 2,
+  "fields": {
+    "name": "js",
+    "course_num": 1,
+    "start_date": "2025-10-01",
+    "end_date": "2025-10-23",
+    "description": "dasdasd"
+  }
+},
+{
+  "model": "main.course",
+  "pk": 3,
+  "fields": {
+    "name": "c",
+    "course_num": 1,
+    "start_date": "2025-10-06",
+    "end_date": "2025-10-17",
+    "description": "jgjhghjg"
+  }
+},
+{
+  "model": "main.grade",
+  "pk": 1,
+  "fields": {
+    "person": 1,
+    "grade": 50,
+    "course": 3,
+    "date": "2025-10-15",
+    "date_add": "2025-10-16",
+    "date_update": "2025-10-16"
+  }
+},
+{
+  "model": "main.grade",
+  "pk": 2,
+  "fields": {
+    "person": 4,
+    "grade": 60,
+    "course": 2,
+    "date": "2025-10-16",
+    "date_add": "2025-10-17",
+    "date_update": "2025-10-17"
+  }
+},
+{
+  "model": "main.grade",
+  "pk": 3,
+  "fields": {
+    "person": 4,
+    "grade": 90,
+    "course": 1,
+    "date": "2025-10-16",
+    "date_add": "2025-10-17",
+    "date_update": "2025-10-17"
+  }
+},
+{
+  "model": "main.grade",
+  "pk": 4,
+  "fields": {
+    "person": 2,
+    "grade": 66,
+    "course": 2,
+    "date": "2025-10-16",
+    "date_add": "2025-10-17",
+    "date_update": "2025-10-17"
+  }
+}
+]
