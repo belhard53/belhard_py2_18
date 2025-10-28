@@ -28,6 +28,25 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# # Разрешенные хосты
+# ALLOWED_HOSTS = [
+#     '34.118.122.190',
+#     'localhost',
+#     '127.0.0.1',
+# ]
+
+# # Доверенные источники для CSRF
+# CSRF_TRUSTED_ORIGINS = [
+#     'http://34.118.122.190',
+#     'http://34.118.122.190:8000',
+#     'https://34.118.122.190',
+#     'http://localhost',
+#     'http://localhost:8000',
+#     'http://127.0.0.1',
+#     'http://127.0.0.1:8000',
+# ]
+
+
 # Application definition
 
 INSTALLED_APPS = [

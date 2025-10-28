@@ -26,8 +26,24 @@
     
 *Collect static files:*
     **собираем все статик-файлы в одну root-папку для nginx**    
+    
     append to settings.py:
-        STATIC_ROOT = os.path.join(BASE_DIR, 'static')    
+
+        DEBUG = False
+
+        STATIC_ROOT = os.path.join(BASE_DIR, 'static')   
+
+        # Разрешенные хосты
+        ALLOWED_HOSTS = [
+            '34.118.122.190', # ваш ip адресс
+            'localhost',
+            '127.0.0.1',
+        ]
+
+        # Доверенные источники для CSRF
+        CSRF_TRUSTED_ORIGINS = [
+            'http://34.118.122.190',            
+        ]
     
     python3 manage.py collectstatic 
     
@@ -80,6 +96,8 @@
     
     To restart the process after the code updates run:
         sudo supervisorctl restart django
+
+
 
 
 
