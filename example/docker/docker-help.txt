@@ -28,7 +28,7 @@ Dockerfile — это текстовый файл, который содержи
 	docker run -it busybox shls
 	docker run -it busybox sh - консоль внутри контейнера
 		rm -rf bin - удалить папку bin - перестанет работать Ls
-		выйти и запустить еще раз - будет все работать
+		выйти и запустить еще раз - будет все работать, т.к контейнер создаться заново
 	docker run --help
 	docker rm 305297d7a235 - удалить отработтаный контейнер
 	docker rm $(docker ps -a -q -f status=exited) удалить все отработанные
@@ -38,13 +38,24 @@ Dockerfile — это текстовый файл, который содержи
 	docker build -t my_image_name - создать свой образ
 	docker push user/my_image_name - отправить образ на докерхаб
 			
-	docker run --rm -v $(pwd):/app my-python-app -v $(pwd):/app: 
-			Монтирует текущую директорию ($(pwd)) в директорию /app внутри контейнера.
-
+	
 	docker run --rm -v $(pwd):/app python python app/main.py
-		запустит main.py 
+		Монтирует текущую директорию ($(pwd)) в директорию /app внутри контейнера.
+		запустит main.py из текущей дир внутри контейнера
 
+	--------------------------
+	# запустить постгрес - при запуске указываем пароль суперюзера
+	docker run -e POSTGRES_PASSWORD=user1 -e POSTGRES_USER=user1 -e POSTGRES_DB=db1 -it postgres
+	
+	подключится к постгрес
+	docker exec -it <name_container> psql -U user1 -d db1
+		теперь можно писать SQL в консоль для postgres
+		>>> CREATE TABLE IF NOT EXISTS test_table (id SERIAL PRIMARY KEY, name VARCHAR(50) NOT NULL);
+		>>> INSERT INTO test_table (name) VALUES ('Test Data 1'), ('Test Data 2');
+		>>> \dt - показать таблицы
+		>>> INSERT INTO test_table (name) VALUES ('Test Data 1'), ('Test Data 2');
 
+-----------------------------------------------------
 Dockerfile
 	FROM - всегда первая, задает базовый образ.
 	VOLUME - создает точку монтирования для данных.
